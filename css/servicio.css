@@ -18,7 +18,7 @@
 }
 
 main {
-  background-color: #DA17E8;
+  background-color: #005fdd;
   width: 100%;
   height: auto;
   display: flex;
@@ -90,7 +90,7 @@ main {
   position: fixed;
   top: 20px;
   right: 20px;
-  background-color: #00d;
+  background-color: #005fdd;
   color: white;
   text-decoration: none;
   padding: 7px 10px;
@@ -141,6 +141,7 @@ main {
 .whatsapp-btn:hover {
   background-color: #09ac7e;
   transform: scale(1.1);
+  border: 2px solid #000;
 }
 
 .whatsapp-btn img {
