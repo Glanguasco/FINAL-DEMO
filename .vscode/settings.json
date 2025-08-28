@@ -1,0 +1,178 @@
+{
+  "project": {
+    "name": "Botia Onboarding System",
+    "version": "1.0.0",
+    "description": "Sistema de onboarding para clientes de Botia.tech",
+    "authors": ["Frontend Developer", "UI/UX Designer", "Form Developer"],
+    "license": "Academic Use"
+  },
+  
+  "environment": {
+    "development": {
+      "port": 5501,
+      "baseUrl": "http://localhost:5501",
+      "debug": true
+    },
+    "production": {
+      "baseUrl": "https://botia-onboarding.com",
+      "debug": false
+    }
+  },
+
+  "storage": {
+    "keys": {
+      "main": "botiaSubmissions",
+      "legacy": "onboardingSubmissions",
+      "backup": "botiaBackup"
+    },
+    "retention": {
+      "days": 30,
+      "maxRecords": 1000
+    }
+  },
+
+  "forms": {
+    "ecommerce": {
+      "id": "ecommerceForm",
+      "type": "ecommerce",
+      "requiredFields": [
+        "nombreEmpresa",
+        "rubro", 
+        "publico",
+        "cantidadProductos",
+        "plataforma",
+        "inventario",
+        "pedidosMensuales",
+        "metodosPago",
+        "politicaEnvios",
+        "logistica",
+        "dudasFrecuentes",
+        "canalesSoporte"
+      ],
+      "validation": {
+        "cantidadProductos": {"min": 1, "type": "number"},
+        "pedidosMensuales": {"min": 0, "type": "number"},
+        "nombreEmpresa": {"maxLength": 100, "required": true}
+      }
+    },
+    "servicios": {
+      "id": "serviciosForm", 
+      "type": "servicios",
+      "requiredFields": [
+        "nombreEmpresa",
+        "tipoServicio",
+        "publicoObjetivo",
+        "serviciosAutomatizar",
+        "gestionReservas",
+        "metodosPago",
+        "canalesAtencion"
+      ],
+      "validation": {
+        "clientesMensuales": {"min": 0, "type": "number"},
+        "nombreEmpresa": {"maxLength": 100, "required": true}
+      }
+    }
+  },
+
+  "dashboard": {
+    "charts": {
+      "typeChart": {
+        "type": "doughnut",
+        "colors": ["#005fdd", "#DA17E8"]
+      },
+      "statusChart": {
+        "type": "bar", 
+        "colors": ["#4CAF50", "#2196F3"]
+      }
+    },
+    "filters": {
+      "available": ["tipo", "estado", "fecha"],
+      "searchFields": ["empresa", "contacto", "codigo"]
+    },
+    "export": {
+      "formats": ["json", "csv"],
+      "filename": "botia-export-{date}"
+    }
+  },
+
+  "ui": {
+    "theme": {
+      "primary": "#005fdd",
+      "secondary": "#DA17E8", 
+      "success": "#4CAF50",
+      "info": "#2196F3",
+      "warning": "#FF9800"
+    },
+    "fonts": {
+      "main": "Outfit, sans-serif",
+      "fallback": "Segoe UI, Tahoma, Geneva, Verdana, sans-serif"
+    },
+    "animations": {
+      "duration": 300,
+      "easing": "ease-in-out"
+    }
+  },
+
+  "validation": {
+    "codigo": {
+      "pattern": "^BOT-\\d{4}-\\d{4}$",
+      "example": "BOT-2024-1234"
+    },
+    "email": {
+      "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+    },
+    "telefono": {
+      "pattern": "^\\d{9}$",
+      "format": "999XXXXXX"
+    }
+  },
+
+  "features": {
+    "autoSave": true,
+    "codeGeneration": true,
+    "demoData": true,
+    "exportData": true,
+    "responsiveDesign": true,
+    "accessibility": true
+  },
+
+  "analytics": {
+    "track": ["form_start", "form_complete", "dashboard_view", "export_data"],
+    "retention": "30_days"
+  },
+
+  "compatibility": {
+    "browsers": {
+      "chrome": ">=90",
+      "firefox": ">=88", 
+      "safari": ">=14",
+      "edge": ">=90"
+    },
+    "devices": ["desktop", "tablet", "mobile"]
+  },
+
+  "api": {
+    "future": {
+      "baseUrl": "/api/v1",
+      "endpoints": {
+        "submissions": "/submissions",
+        "dashboard": "/dashboard",
+        "export": "/export"
+      }
+    }
+  },
+
+  "build": {
+    "assets": {
+      "css": ["styles.css", "ecommerce.css", "servicio.css"],
+      "js": ["ecommerce.js", "servicio.js"],
+      "images": "img/",
+      "fonts": ["Outfit", "Roboto Condensed"]
+    },
+    "optimization": {
+      "minify": false,
+      "compress": false,
+      "cache": true
+    }
+  }
+}

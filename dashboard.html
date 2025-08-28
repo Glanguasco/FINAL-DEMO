@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Botia.tech Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="./css/dashboard.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo-container">
+          <img src="./img/mejor.png" alt="" />
+        </div>
+        <nav>
+            <a href="index.html" class="nav-link">
+                <i class="bi bi-house"></i> Inicio
+            </a>
+            <a href="#" class="nav-link active">
+                <i class="bi bi-speedometer2"></i> Dashboard
+            </a>
+            <a href="ecommerce.html" class="nav-link">
+                <i class="bi bi-shop"></i> E-commerce
+            </a>
+            <a href="servicio.html" class="nav-link">
+                <i class="bi bi-headset"></i> Servicios
+            </a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header sin botones de backup -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Dashboard de Onboarding</h2>
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="exportData()">
+                    <i class="bi bi-download"></i> Exportar
+                </button>
+            </div>
+        </div>
+
+        <!-- Metrics -->
+        <div class="row g-3 mb-4">
+            <div class="col-md-3">
+                <div class="card metric-card" style="border-left-color: var(--primary);">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <p class="text-muted mb-1">Total Clientes</p>
+                                <h3 id="totalClientes">0</h3>
+                            </div>
+                            <div class="metric-icon bg-primary">
+                                <i class="bi bi-people"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card metric-card" style="border-left-color: var(--success);">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <p class="text-muted mb-1">Completados</p>
+                                <h3 id="completados">0</h3>
+                            </div>
+                            <div class="metric-icon bg-success">
+                                <i class="bi bi-check-circle"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card metric-card" style="border-left-color: var(--primary);">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <p class="text-muted mb-1">E-commerce</p>
+                                <h3 id="ecommerce">0</h3>
+                            </div>
+                            <div class="metric-icon" style="background-color: var(--primary);">
+                                <i class="bi bi-shop"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card metric-card" style="border-left-color: var(--secondary);">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <p class="text-muted mb-1">Servicios</p>
+                                <h3 id="servicios">0</h3>
+                            </div>
+                            <div class="metric-icon" style="background-color: var(--secondary);">
+                                <i class="bi bi-headset"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="searchInput" 
+                               placeholder="Buscar cliente..." onkeyup="filterTable()">
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select" id="filterType" onchange="filterTable()">
+                            <option value="">Todos los tipos</option>
+                            <option value="ecommerce">E-commerce</option>
+                            <option value="servicios">Servicios</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select" id="filterStatus" onchange="filterTable()">
+                            <option value="">Todos los estados</option>
+                            <option value="completado">Completado</option>
+                            <option value="iniciado">Iniciado</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-outline-secondary w-100" onclick="clearFilters()">
+                            <i class="bi bi-x-circle"></i> Limpiar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Clients Table -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5>Listado de Clientes</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Empresa</th>
+                                <th>Contacto</th>
+                                <th>Tipo</th>
+                                <th>Estado</th>
+                                <th>Fecha</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="clientsTable">
+                            <!-- Dynamic content -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Distribución por Tipo</h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="typeChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Estados</h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="statusChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="clientModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Detalle del Cliente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="modalContent">
+                    <!-- Dynamic content -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- RUTA CORREGIDA: dashboard.js en lugar de dasboard.js -->
+    <script src="./javascript/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/servicio.css" />
+    <title>Onboarding Servicios - Botia.tech</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+  </head>
+  <body>
+    <main>
+      <article class="slider-box">
+        <ul>
+          <li><img src="./img/slider24.jpg" alt="" /></li>
+          <li><img src="./img/slider25.jpg" alt="" /></li>
+          <li><img src="./img/slider30.jpeg" alt="" /></li>
+          <li><img src="./img/slider11.jpg" alt="" /></li>
+        </ul>
+      </article>
+      <article class="art2">
+         <a href="./index.html" class="boton1-panel">Inicio</a>
+
+        <a href="./dashboard.html" class="boton-panel">Panel Admin</a>
+
+        <a
+          href="https://wa.me/+51977446314?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Botia.tech"
+          class="whatsapp-btn"
+          title="Chatea con nosotros por WhatsApp"
+          target="_blank"
+        >
+          <img src="./img/social.png" alt="WhatsApp" />
+        </a>
+
+
+        <div class="logo-container">
+          <img src="./img/mejor.png" alt="" />
+        </div>
+        <div class="parrafo">
+          <p>
+            "Lleva tu negocio al siguiente nivel con IA. No venimos a sustituir
+            personas… sino a potenciar su grandeza. Juntos, somos imbatibles."
+          </p>
+        </div>
+        
+        <!-- Acceso al dashboard -->
+        
+
+        <div class="cards">
+           <div class="container">
+    <header>
+      <h1>Onboarding para Servicios</h1>
+      <p>Completa este formulario para personalizar tu solución de automatización</p>
+    </header>
+
+    <form id="onboardingForm">
+      <!-- Sección 1: Información General del Negocio -->
+      <section class="form-section">
+        <h2>1. Información General del Negocio</h2>
+        <div class="form-group">
+          <label for="nombreEmpresa">Nombre de tu empresa o servicio</label>
+          <input type="text" id="nombreEmpresa" name="nombreEmpresa" required />
+        </div>
+        <div class="form-group">
+          <label for="tipoServicio">Tipo de servicio que ofreces</label>
+          <input type="text" id="tipoServicio" name="tipoServicio" placeholder="Ej: cursos, consultas médicas, asesorías, coaching" required />
+        </div>
+        <div class="form-group">
+          <label for="publicoObjetivo">Público objetivo principal</label>
+          <input type="text" id="publicoObjetivo" name="publicoObjetivo" placeholder="Ej: estudiantes, profesionales, familias" required />
+        </div>
+      </section>
+
+      <!-- Sección 2: Servicios y Flujo de Atención -->
+      <section class="form-section">
+        <h2>2. Servicios y Flujo de Atención</h2>
+        <div class="form-group">
+          <label for="serviciosAutomatizar">Servicios que deseas automatizar</label>
+          <textarea id="serviciosAutomatizar" name="serviciosAutomatizar" placeholder="Ej: agendamiento, cobros, recordatorios, onboarding" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="infoCliente">Información que necesitas del cliente antes del servicio</label>
+          <input type="text" id="infoCliente" name="infoCliente" placeholder="Ej: datos personales, motivo, presupuesto, documentos" />
+        </div>
+        <div class="form-group">
+          <label for="pasosPrevios">¿Tu servicio requiere pasos previos antes de confirmarse?</label>
+          <textarea id="pasosPrevios" name="pasosPrevios" placeholder="Ej: validación de horarios, pago inicial, envío de formularios"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="clientesMensuales">Clientes mensuales promedio</label>
+          <input type="number" id="clientesMensuales" name="clientesMensuales" placeholder="Ej: 50" />
+        </div>
+        <div class="form-group">
+          <label>¿Tienes un proceso estandarizado de bienvenida o seguimiento?</label>
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="procesoEstandarizado" value="Sí" required> Sí</label>
+            <label class="radio-option"><input type="radio" name="procesoEstandarizado" value="No"> No</label>
+            <label class="radio-option"><input type="radio" name="procesoEstandarizado" value="En proceso"> En proceso</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección 3: Agendamiento y Pagos -->
+      <section class="form-section">
+        <h2>3. Agendamiento y Gestión de Pagos</h2>
+        <div class="form-group">
+          <label for="gestionReservas">¿Cómo gestionas actualmente las reservas?</label>
+          <input type="text" id="gestionReservas" name="gestionReservas" placeholder="Ej: llamadas, WhatsApp, calendario manual" required />
+        </div>
+        <div class="form-group">
+          <label>¿Necesitas mostrar disponibilidad en tiempo real?</label>
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="horariosEnTiempoReal" value="Sí" required> Sí</label>
+            <label class="radio-option"><input type="radio" name="horariosEnTiempoReal" value="No"> No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>¿Ofreces servicios con diferentes duraciones o precios?</label>
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="serviciosDiferentes" value="Sí" required> Sí</label>
+            <label class="radio-option"><input type="radio" name="serviciosDiferentes" value="No"> No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="metodosPago">Métodos de pago que aceptas</label>
+          <input type="text" id="metodosPago" name="metodosPago" placeholder="Ej: tarjeta, transferencia, efectivo, Yape" required />
+        </div>
+        <div class="form-group">
+          <label for="politicaCancelaciones">Política de cancelaciones o reprogramaciones</label>
+          <textarea id="politicaCancelaciones" name="politicaCancelaciones" placeholder="Ej: hasta 24 horas antes, sin costo"></textarea>
+        </div>
+      </section>
+
+      <!-- Sección 4: Atención al Cliente -->
+      <section class="form-section">
+        <h2>4. Atención al Cliente y Comunicación</h2>
+        <div class="form-group">
+          <label for="preguntasFrecuentes">Preguntas frecuentes antes de contratar</label>
+          <textarea id="preguntasFrecuentes" name="preguntasFrecuentes" placeholder="Ej: duración, costo, modalidad online/presencial, requisitos"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="canalesAtencion">Canales de atención habituales</label>
+          <input type="text" id="canalesAtencion" name="canalesAtencion" placeholder="Ej: WhatsApp, correo, web, redes sociales" required />
+        </div>
+        <div class="form-group">
+          <label for="herramientasUsadas">Herramientas que usas actualmente</label>
+          <input type="text" id="herramientasUsadas" name="herramientasUsadas" placeholder="Ej: Google Calendar, CRM, Trello, Zoom" />
+        </div>
+        <div class="form-group">
+          <label>¿Te gustaría usar recordatorios automáticos o encuestas?</label>
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="automatizacionesDeseadas" value="Sí" required> Sí</label>
+            <label class="radio-option"><input type="radio" name="automatizacionesDeseadas" value="No"> No</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección 5: Objetivos -->
+      <section class="form-section">
+        <h2>5. Objetivos y Expectativas</h2>
+        <div class="form-group">
+          <label for="objetivosAutomatizacion">¿Qué quieres mejorar con la automatización?</label>
+          <textarea id="objetivosAutomatizacion" name="objetivosAutomatizacion" placeholder="Ej: ahorrar tiempo, reducir ausentismos, escalar sin más personal"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="planesCrecimiento">¿Tienes planes de crecimiento próximamente?</label>
+          <textarea id="planesCrecimiento" name="planesCrecimiento" placeholder="Ej: nuevos servicios, expansión, más clientes"></textarea>
+        </div>
+      </section>
+
+      <button type="submit">Enviar Respuestas</button>
+    </form>
+
+    <div class="success-message" id="successMessage">
+      <h2>¡Gracias por completar el formulario!</h2>
+      <p>Tu código de referencia es: <strong id="referenceCode">BOT-2024-XXXX</strong></p>
+      <p>Pronto nos contactaremos contigo para personalizar tu solución de automatización.</p>
+      <div style="margin-top: 20px;">
+        <a href="dashboard.html" style="background: #005fdd; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; display: inline-block; font-weight: bold;">
+          <i class="bi bi-speedometer2"></i> Ver Dashboard
+        </a>
+        <a href="index.html" style="background: #6c757d; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; display: inline-block; font-weight: bold; margin-left: 10px;">
+          <i class="bi bi-house"></i> Volver al Inicio
+        </a>
+      </div>
+    </div>
+  </div>
+        </div>
+      </article>
+    </main>
+
+    <!-- USAR ARCHIVO EXTERNO EN LUGAR DE CÓDIGO INLINE -->
+    <script src="./javascript/servicio.js"></script>
+  </body>
+</html>
